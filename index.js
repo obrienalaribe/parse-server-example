@@ -44,7 +44,7 @@ app.listen(port, function() {
 
     console.log('starting live query');
 
-// Initialize a LiveQuery server instance, app is the express app of your Parse Server
+// app is the Parse Server instance 
 let httpServer = require('http').createServer(app);
-httpServer.listen(port);
-var parseLiveQueryServer = ParseServer.createLiveQueryServer(httpServer);
+httpServer.listen(2000);
+ParseServer.createLiveQueryServer(httpServer);
