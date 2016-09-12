@@ -1,6 +1,6 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
-
+"use strict"
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 
@@ -41,6 +41,8 @@ var port = process.env.PORT || 1337;
 app.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
+
+    console.log('starting live query');
 
 // Initialize a LiveQuery server instance, app is the express app of your Parse Server
 let httpServer = require('http').createServer(app);
