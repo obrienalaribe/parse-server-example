@@ -11,7 +11,7 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-var devCertPath = path.resolve(__dirname, '/certs/Dev_Push_Certificate.p12');
+var devCertPath = __dirname + '/certs/Dev_Push_Certificate.p12'
 
 if (!devCertPath){
     console.log('DATABASE_URI not specified, falling back to localhost.');
