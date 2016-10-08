@@ -21,7 +21,7 @@ var api = new ParseServer({
       {
         pfx: '/certs/Dev_Push_Certificate.p12', // Dev PFX or P12
         bundleId: 'org.rccg.TransportForChurch',
-        production: false // Dev
+        production: true // Dev
       }
     ]
   }
