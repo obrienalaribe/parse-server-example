@@ -1,6 +1,7 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
 "use strict"
+var path = require('path');
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 
@@ -8,6 +9,12 @@ var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
+}
+
+var devCertPath = path.resolve(__dirname, '/certs/Dev_Push_Certificate.p12');
+
+if (!devCertPath){
+    console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
 var api = new ParseServer({
@@ -19,7 +26,7 @@ var api = new ParseServer({
   push: {
     ios: [
       {
-        pfx: '/certs/Dev_Push_Certificate.p12', // Dev PFX or P12
+        pfx: devCertPath, // Dev PFX or P12
         bundleId: 'org.rccg.TransportForChurch',
         production: false // Dev
       }
