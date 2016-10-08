@@ -16,9 +16,14 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
-
-  liveQuery: {
-    classNames: ['User', 'Picture', 'Rider', 'Trip']
+  push: {
+    ios: [
+      {
+        pfx: '/certs/Dev_Push_Certificate.p12', // Dev PFX or P12
+        bundleId: 'org.rccg.TransportForChurch',
+        production: false // Dev
+      }
+    ]
   }
 
 });
@@ -41,10 +46,3 @@ var port = process.env.PORT || 1337;
 app.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
-
-    console.log('starting live query');
-
-// app is the Parse Server instance 
-let httpServer = require('http').createServer(app);
-httpServer.listen(2000);
-ParseServer.createLiveQueryServer(httpServer);
