@@ -10,15 +10,12 @@ Parse.Cloud.define("notifyRiderForAcceptedTrip", function(request, response) {
   var params = request.params;
 
   var userId = params.userId;
-
-  var pushQuery = new Parse.Query(Parse.Installation);
-  pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only                                                                                                                                          
+                                                                                                                                      
 
   console.log("#### notifyRiderForAcceptedTrip sending push notification to user Id: " + userId);
 
   Parse.Push.send({
   	channels: [userId],
-    where: pushQuery, // Set our Installation query                                                                                                                                                              
     data: {
       alert: "The driver is on their way ",
       sound: 'default'
