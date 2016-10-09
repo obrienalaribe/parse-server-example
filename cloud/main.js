@@ -14,7 +14,7 @@ Parse.Cloud.define("notifyRiderForAcceptedTrip", function(request, response) {
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only                                                                                                                                          
 
-  console.log("#### notifyRiderForAcceptedTrip sending push notification");
+  console.log("#### notifyRiderForAcceptedTrip sending push notification to user Id: " + userId);
 
   Parse.Push.send({
   	channels: [userId],
