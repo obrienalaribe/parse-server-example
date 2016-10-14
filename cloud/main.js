@@ -5,19 +5,21 @@ Parse.Cloud.define('hello', function(req, res) {
 
 });
 
-Parse.Cloud.define("notifyRiderForAcceptedTrip", function(request, response) {
+Parse.Cloud.define("notifyUser", function(request, response) {
 
   var params = request.params;
+  var status = request.params.status;
+  var message = request.params.message;
 
   var userId = params.userId;
                                                                                                                                       
 
-  console.log("#### notifyRiderForAcceptedTrip sending push notification to user Id: " + userId);
+  console.log("#### notifyUser sending push notification to user Id: " + userId);
 
   Parse.Push.send({
   	channels: [userId],
     data: {
-      alert: "The driver is on their way ",
+      alert: message,
       sound: 'default'
 
     }
