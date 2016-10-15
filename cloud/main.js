@@ -12,20 +12,14 @@ Parse.Cloud.define("notifyUserAboutTrip", function(request, response) {
   var message = request.params.message;
 
   var receiverId = params.userId;
-  var sender = params.user;
-
                                                                                                                                       
-
-  console.log("#### sending push notification to channel for user Id: " + receiverId);
+  console.log("#### sending push notification to user channel " + receiverId);
 
   Parse.Push.send({
   	channels: [receiverId],
     data: {
       alert: message,
-      sound: 'default',
-      type: 'TripStatus',
-      driver: sender,
-      status: status
+      sound: 'default'
     }
   }, { success: function() {
       console.log("#### PUSH OK");
