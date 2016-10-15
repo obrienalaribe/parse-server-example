@@ -19,10 +19,7 @@ Parse.Cloud.define("notifyUserAboutTrip", function(request, response) {
   	channels: [receiverId],
     data: {
       alert: message,
-      sound: 'default',
-      type: 'TripStatus',
-      driver: 'John',
-      status: status
+      sound: 'default'
     }
   }, { success: function() {
       console.log("#### PUSH OK");
