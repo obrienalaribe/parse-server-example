@@ -5,7 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 });
 
-Parse.Cloud.define("notifyUser", function(request, response) {
+Parse.Cloud.define("notifyUserAboutTrip", function(request, response) {
 
   var params = request.params;
   var status = request.params.status;
