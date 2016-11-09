@@ -17,7 +17,7 @@ if (!devCertPath){
 }
 
 var api = new ParseServer({
-  serverURL: "https://insta231.herokuapp.com/parse",
+  serverURL: "",
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
