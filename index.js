@@ -10,11 +10,10 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-var devCertPath = __dirname + '/certs/Dev_Push_Certificate.p12'
+var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
+var prodCertPathForRider = __dirname + '/certs/Prod_Push_Certificate.p12'
 
-if (!devCertPath){
-    console.log('DATABASE_URI not specified, falling back to localhost.');
-}
+var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Certificate.p12'
 
 var api = new ParseServer({
   serverURL: "https://insta231.herokuapp.com/parse",
@@ -25,8 +24,18 @@ var api = new ParseServer({
   push: {
     ios: [
       {
-        pfx: devCertPath, // Dev PFX or P12
+        pfx: devCertPathForRider, // Dev PFX or P12
         bundleId: 'org.rccg.TransportForChurch',
+        production: false // Dev
+      },
+      {
+        pfx: prodCertPathForRider, // Prod PFX or P12
+        bundleId: 'org.rccg.TransportForChurch',
+        production: true 
+      },
+      {
+        pfx: devCertPathForDriver, // Prod PFX or P12
+        bundleId: 'org.rccg.TransportForChurchDriver',
         production: false // Dev
       }
     ]
