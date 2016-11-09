@@ -15,6 +15,10 @@ if (!databaseUri) {
 
 var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Push_Cert.p12'
 
+if (!devCertPathForDriver) {
+    console.log('MUPPET ITS BECAUSE IT CANNOT READ FILE');
+}
+xs
 var api = new ParseServer({
   serverURL: "https://insta231.herokuapp.com/parse",
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
