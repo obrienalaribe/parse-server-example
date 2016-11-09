@@ -39,8 +39,7 @@ var api = new ParseServer({
       // }
       {
         pfx: devCertPathForDriver, // Prod PFX or P12
-        bundleId: 'org.rccg.TransportForChurchDriver',
-        production: false // Dev
+        bundleId: 'org.rccg.TransportForChurchDriver'
       }
     ]
   }
