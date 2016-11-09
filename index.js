@@ -13,7 +13,7 @@ if (!databaseUri) {
 var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
 var prodCertPathForRider = __dirname + '/certs/Prod_Push_Certificate.p12'
 
-var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Certificate.p12'
+// var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Certificate.p12'
 
 var api = new ParseServer({
   serverURL: "https://insta231.herokuapp.com/parse",
