@@ -32,12 +32,12 @@ var api = new ParseServer({
         pfx: prodCertPathForRider, // Prod PFX or P12
         bundleId: 'org.rccg.TransportForChurch',
         production: true 
-      },
-      {
-        pfx: devCertPathForDriver, // Prod PFX or P12
-        bundleId: 'org.rccg.TransportForChurchDriver',
-        production: false // Dev
       }
+      // {
+      //   pfx: devCertPathForDriver, // Prod PFX or P12
+      //   bundleId: 'org.rccg.TransportForChurchDriver',
+      //   production: false // Dev
+      // }
     ]
   }
 
