@@ -12,7 +12,7 @@ if (!databaseUri) {
 
 var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
 
-var devCertPathForDriver = __dirname + '/certs/Driver_Push_Cert.p12'
+var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Push.p12'
 
 if (!devCertPathForDriver) {
     console.log('MUPPET ITS BECAUSE IT CANNOT READ FILE');
@@ -26,14 +26,15 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
   push: {
     ios: [
-      // {
-      //   pfx: devCertPathForRider, // Dev PFX or P12
-      //   bundleId: 'org.rccg.TransportForChurch',
-      //   production: false // Dev
-      // },
+      {
+        pfx: devCertPathForRider, // Dev PFX or P12
+        bundleId: 'org.rccg.TransportForChurch',
+        production: false // Dev
+      },
       {
         pfx: devCertPathForDriver, 
         bundleId: 'org.rccg.TransportForChurchDriver',
+        production: false // Dev
       }
     ]
   }
