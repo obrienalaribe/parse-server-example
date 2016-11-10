@@ -10,8 +10,8 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
-// var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
-// var prodCertPathForRider = __dirname + '/certs/Prod_Push_Certificate.p12'
+var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
+var prodCertPathForRider = __dirname + '/certs/Prod_Push_Certificate.p12'
 
 var devCertPathForDriver = __dirname + '/certs/Driver_Prod_Cert.p12'
 
@@ -27,21 +27,21 @@ var api = new ParseServer({
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
   push: {
     ios: [
-      // {
-      //   pfx: devCertPathForRider, // Dev PFX or P12
-      //   bundleId: 'org.rccg.TransportForChurch',
-      //   production: false // Dev
-      // },
-      // {
-      //   pfx: prodCertPathForRider, // Prod PFX or P12
-      //   bundleId: 'org.rccg.TransportForChurch',
-      //   production: true 
-      // }
       {
-        pfx: devCertPathForDriver, // Prod PFX or P12
-        bundleId: 'org.rccg.TransportForChurchDriver',
-        production: true
+        pfx: devCertPathForRider, // Dev PFX or P12
+        bundleId: 'org.rccg.TransportForChurch',
+        production: false // Dev
+      },
+      {
+        pfx: prodCertPathForRider, // Prod PFX or P12
+        bundleId: 'org.rccg.TransportForChurch',
+        production: true 
       }
+      // {
+      //   pfx: devCertPathForDriver, // Prod PFX or P12
+      //   bundleId: 'org.rccg.TransportForChurchDriver',
+      //   production: true
+      // }
     ]
   }
 
