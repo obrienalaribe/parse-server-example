@@ -13,7 +13,7 @@ if (!databaseUri) {
 // var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
 // var prodCertPathForRider = __dirname + '/certs/Prod_Push_Certificate.p12'
 
-var devCertPathForDriver = __dirname + '/certs/Driver_Dev_Push_Cert.p12'
+var devCertPathForDriver = __dirname + '/certs/Driver_Prod_Cert.p12'
 
 if (!devCertPathForDriver) {
     console.log('MUPPET ITS BECAUSE IT CANNOT READ FILE');
@@ -39,7 +39,8 @@ var api = new ParseServer({
       // }
       {
         pfx: devCertPathForDriver, // Prod PFX or P12
-        bundleId: 'org.rccg.TransportForChurchDriver'
+        bundleId: 'org.rccg.TransportForChurchDriver',
+        production: true
       }
     ]
   }
