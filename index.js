@@ -14,7 +14,7 @@ var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
 
 var driverCert = __dirname + '/certs/Driver_Dev.p12'
 
-if (!devCertPathForDriver) {
+if (!driverCert) {
     console.log('MUPPET ITS BECAUSE IT CANNOT READ FILE');
 }
 
