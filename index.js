@@ -32,7 +32,7 @@ var api = new ParseServer({
         production: false // Dev
       },
       {
-        pfx: driverCert, 
+        pfx: driverCert,
         bundleId: 'org.rccg.TransportForChurchDriver',
         production: false // Dev
       }
@@ -59,3 +59,8 @@ var port = process.env.PORT || 1337;
 app.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
 });
+
+var minutes = 10, the_interval = minutes * 60 * 1000;
+setInterval(function() {
+  console.log("Keeping Server ALIVE every " + minutes + " minutes");
+}, the_interval);
