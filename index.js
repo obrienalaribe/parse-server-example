@@ -12,9 +12,11 @@ if (!databaseUri) {
 
 var devCertPathForRider = __dirname + '/certs/Dev_Push_Certificate.p12'
 
-var driverCert = __dirname + '/certs/Driver_Dev.p12'
+var driverDevCert = __dirname + '/certs/Driver_Dev.p12';
+var driverProdCert = __dirname + '/certs/Driver_Prod.p12'
 
-if (!driverCert) {
+
+if (!driverDevCert) {
     console.log('MUPPET ITS BECAUSE IT CANNOT READ FILE');
 }
 
@@ -32,9 +34,14 @@ var api = new ParseServer({
         production: false // Dev
       },
       {
-        pfx: driverCert,
+        pfx: driverDevCert,
         bundleId: 'org.rccg.TransportForChurchDriver',
         production: false // Dev
+      },
+      {
+        pfx: driverProdCert,
+        bundleId: 'org.rccg.TransportForChurchDriver',
+        production: true // Dev
       }
     ]
   }
