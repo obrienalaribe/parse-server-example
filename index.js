@@ -21,8 +21,8 @@ if (!driverDevCert) {
 }
 
 var api = new ParseServer({
-  serverURL: "https://insta231.herokuapp.com/parse",
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  serverURL: "http://localhost:1337/parse",
+  databaseURI: databaseUri || 'mongodb://heroku_0bf7ng8q:24bjef76ica708g6g52vcste6v@ds011422.mlab.com:11422/heroku_0bf7ng8q',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || 'myMasterKey',
@@ -65,6 +65,15 @@ app.get('/', function(req, res) {
 var port = process.env.PORT || 1337;
 app.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
+});
+
+Parse.Cloud.run('setupMetaData', {}, {
+  success: function(results) {
+    console.log("ran setup successfully");
+  },
+  error: function(error) {
+    console.log(error);
+  }
 });
 
 var minutes = 10, the_interval = minutes * 60 * 1000;
